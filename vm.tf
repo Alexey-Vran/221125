@@ -24,7 +24,5 @@ resource "yandex_compute_instance" "vm-1" {
   
   metadata    = {
     ssh-keys  = "${var.ssh_user}:${file("~/.ssh/id_rsa.pub")}"
-//    user_data = "${file("./install_vm.sh")}"
-//    user_data = "${file("./deployments.yaml")}"
   }
 }
