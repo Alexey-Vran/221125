@@ -1,0 +1,9 @@
+key.json
+.terraform
+.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.*
+crash.log
+backend.conf
+values.yaml
