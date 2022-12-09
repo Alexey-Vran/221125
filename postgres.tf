@@ -1,4 +1,4 @@
-//Кластер PostgreSQL. В дальнейшем не пригодится (?)
+//Кластер PostgreSQL
 resource "yandex_mdb_postgresql_cluster" "pg-cluster" {
   name                = var.pg_cluster_name
   environment         = var.pg_environment
