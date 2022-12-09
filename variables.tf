@@ -14,7 +14,14 @@ variable "region_var" {}
 variable "my_ip" {}
 
 //Для виртуальных машин
-variable "operating_system_id" {}
+variable "vm_operating_system_id" {}
+variable "vm_name" {}
+variable "vm_platform_id" {}
+variable "vm_core_fraction" {}
+variable "vm_cores" {}
+variable "vm_memory" {}
+variable "vm_disk_type" {}
+variable "vm_disk_size" {}
 
 //Для бакета
 variable "bucket_name" {}
@@ -25,7 +32,6 @@ variable "cluster_name" {}
 variable "node_group_name" {}
 variable "min_nodes" {}
 variable "max_nodes" {}
-variable "initial_nodes" {}
 
 //Для PostgreSQL
 variable "pg_cluster_name" {}
@@ -37,3 +43,11 @@ variable "pg_disk_size" {}
 variable "pg_db_name" {}
 variable "pg_user_name" {}
 variable "pg_user_password" {}
+
+//Для loadbalancer
+variable "lb_name" {}
+variable "lb_listener_name" {}
+variable "lb_healthcheck_name" {}
+variable "lb_listener_port" {}
+variable "lb_healthcheck_port" {}
+variable "lb_healthcheck_path" {}

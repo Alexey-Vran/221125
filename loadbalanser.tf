@@ -30,11 +30,11 @@ resource "yandex_lb_target_group" "lb-targets" {
 
 //Создание балансировщика
 resource "yandex_lb_network_load_balancer" "loadbalancer" {
-  name = "loadbalancer"
+  name = var.lb_name
 
   listener {
-    name = "http-listener"
-    port = 80
+    name = var.lb_listener_name
+    port = var.lb_listener_port
     external_address_spec {
       ip_version = "ipv4"
     }
@@ -44,10 +44,10 @@ resource "yandex_lb_network_load_balancer" "loadbalancer" {
     target_group_id = yandex_lb_target_group.lb-targets.id
 
     healthcheck {
-      name = "http-health"
+      name = var.lb_healthcheck_name
         http_options {
-          port = 80
-          path = "/"
+          port = var.lb_healthcheck_port
+          path = var.lb_healthcheck_path
         }
     }
   }

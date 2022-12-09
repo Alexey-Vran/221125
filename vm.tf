@@ -1,19 +1,19 @@
 //Создание виртуальной машины для Lite
 resource "yandex_compute_instance" "vm-1" {
-  name = "vm-1"
-  platform_id = "standard-v3"
+  name = var.vm_name
+  platform_id = var.vm_platform_id
 
   resources {
-    core_fraction = 20
-    cores         = 2
-    memory        = 2
+    core_fraction = var.vm_core_fraction
+    cores         = var.vm_cores
+    memory        = var.vm_memory
   }
 
   boot_disk {
     initialize_params {
-      image_id = var.operating_system_id
-      type     = "network-hdd"
-      size     = 10
+      image_id = var.vm_operating_system_id
+      type     = var.vm_disk_type
+      size     = var.vm_disk_size
     }
   }
 
@@ -24,7 +24,4 @@ resource "yandex_compute_instance" "vm-1" {
   
   metadata    = {
     ssh-keys  = "${var.ssh_user}:${file("~/.ssh/id_rsa.pub")}"
-//    user_data = "${file("./install_vm.sh")}"
-//    user_data = "${file("./deployments.yaml")}"
-  }
 }
