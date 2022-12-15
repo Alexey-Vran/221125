@@ -51,13 +51,6 @@ resource "yandex_vpc_security_group" "secgroup" {
     port           = 22
   }
 
-ingress {
-    protocol       = "TCP"
-    description    = "Правило разрешает подключение к узлам для helm с указанных IP-адресов."
-    v4_cidr_blocks = [var.my_ip]
-    port           = 9443
-  }
-
   egress {
     protocol       = "ANY"
     description    = "Правило разрешает весь исходящий трафик"
