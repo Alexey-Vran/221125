@@ -25,22 +25,6 @@ resource "yandex_resourcemanager_folder_iam_binding" "images-puller" {
  members   = ["serviceAccount:${yandex_iam_service_account.sa.id}"]
 }
 
-//Создание бакета с использованием ключа
-/*
-resource "yandex_storage_bucket" "bucket-tfstate" {
-  access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
-  secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
-  bucket     = var.bucket_name
-
-//Восстановление ACL после terraform destroy
-  grant {
-    id          = yandex_iam_service_account.sa.id
-    type        = "CanonicalUser"
-    permissions = var.bucket_sa_permissions
-  }
-}
-*/
-
 //Создание ключа для шифрования
 resource "yandex_kms_symmetric_key" "kms-key" {
   name              = "kms-key"
